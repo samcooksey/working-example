@@ -1,5 +1,5 @@
 ### working-example
-Adding Piral Extension to non pilet app via pilet
+Trying to add Piral Extension to non pilet app via pilet
 
 ### How to run application
 - `cd piral-shell`
