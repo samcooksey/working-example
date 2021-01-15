@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+  The DOCTYPE declaration above will set the browser's rendering engine into "Standards Mode". Replacing this
+  declaration with a "Quirks Mode" doctype is not supported.
+-->
+<html lang="en">
+  <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <base href="" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <link href="/assets/img/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/font/Roboto.css" />
+    <link rel="stylesheet" href="/assets/font/Lato.css" />
+
+    <!--
+      This is a very interesting property. A device's viewport is different from its actual screen resolution. A device
+      can spoof its viewport size and render a page much more zoomed out than its screen could normally fit. The user
+      can then zoom in to see what the want. We can force the device to report its actual size using width=device-width.
+      We can tell it to add a little more to Window.getClient[Width/Height]() using the *-scale properties below.
+      Setting initial-scale to 0.75, for example, will tell an iPad its width is 1024 (768px / 0.75)
+    -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,user-scalable=yes" />
+    <title>Apptio IT Planning</title>
+
+    <!-- Load ES6+ polyfill -->
+    <script src="/cache/libs/core-js/minified.js"></script>
+
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      The build step will place the bundled scripts into the <html> tag.
+    -->
+  </head>
+  <body>
+    <!-- Help message for people who've disabled javascript in the browser -->
+    <noscript>
+      <div
+        style="
+          width: 22em;
+          position: absolute;
+          left: 50%;
+          margin-left: -11em;
+          color: red;
+          background-color: #fff;
+          border: 1px solid red;
+          padding: 4px;
+          font-family: sans-serif;
+        "
+      >
+        Your web browser must have JavaScript enabled in order for this application to display correctly.
+      </div>
+    </noscript>
+    <div id="root"></div>
+
+    <!-- warn users of incompatible or unsupported browsers -->
+    <script>
+      itPlanning.init(document.getElementById("root"));
+    </script>
+  </body>
+</html>
