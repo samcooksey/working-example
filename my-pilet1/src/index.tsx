@@ -1,10 +1,26 @@
 import * as React from "react";
 import { PiletApi } from "piral-shell";
 import { App } from "./App";
+import { SampleExtension } from "./SampleExtension";
+import * as someReactApp from "some-react-app";
 
 export function setup(app: PiletApi) {
-  app.registerExtension("sample-ext-name", (params) => {
-    return <div>Sample Extension!</div>;
+  app.registerExtension("some-react-app", {
+    type: "html",
+    component: {
+      mount(element) {
+        (element as any).destroy = someReactApp.init(element, {
+          piral: app,
+        });
+      },
+      unmount(element) {
+        (element as any).destroy?.();
+      },
+    },
+  });
+
+  app.registerExtension("sample-ext-name", ({ params: { props } }) => {
+    return <SampleExtension {...props} />;
   });
 
   app.showNotification("Hello from Piral!", {
@@ -18,11 +34,8 @@ export function setup(app: PiletApi) {
   app.registerTile(
     () => (
       <div>
-       
-        {/* <app.Extension name="sample-ext-name" params={{ value: 5 }} /> */}
         <div
           style={{
-            height: "200px",
             backgroundColor: "lightblue",
           }}
         >
